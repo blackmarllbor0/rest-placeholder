@@ -1,0 +1,41 @@
+# параметры запуска
+run:
+#  concurrency: 8 # значение параллелизма (по умолчанию берет все ядра)
+  tests: true # включать тестовый файлы (по умлочанию true)
+  skip-dirs:  # директории которые стоит пропустить ([])
+    - build
+
+# настройка вывода
+output:
+  # format: colored-line-number|line-number|json|tab|checkstyle|code-climate|junit-xml|github-actions
+  format: colored-line-number # (colored-line-number)
+  print-issued-lines: true # вывести строки кода с ошибкой (true)
+  print-linter-name: true # выводить имя линтера, который нашел ошибку (true)
+  unique-by-line: true # сделать вывод задач уникальным построчно (true)
+  sort-results: true # сортировать по имени, файлам и т.д.
+
+# настройка литнеров
+linters:
+  disable-all: true # (false)
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - typecheck
+    - unused
+    - cyclop
+    - dupl
+    - dupword
+    - funlen
+    - lll
+    - gochecknoglobals
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - gosec
+    - nakedret
+    - nestif
+    - stylecheck
+    - varnamelen
