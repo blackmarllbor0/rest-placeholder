@@ -1,32 +1,45 @@
 package service
 
 import (
+	"math/rand"
+	"time"
+
 	"restplaceholder/internal/models"
 	"restplaceholder/pkg/dictionary"
 )
 
-func (s Service) GetPost() models.Post {
+type Posts struct {
+}
+
+func NewPosts() *Posts {
+	return &Posts{}
+}
+
+func (ps Posts) GetPost() models.Post {
 	p := models.Post{}
-	p.ID = dictionary.NewId()
+	p.ID = dictionary.NewID()
 	p.Title = dictionary.NewTitle()
 	p.Content = dictionary.NewContent()
 
 	return p
 }
 
-func (s Service) GetPosts(length int) models.Posts {
+func (ps Posts) GetPosts() models.Posts {
+	rand.Seed(time.Now().UnixNano()) //nolint:staticcheck
+	length := rand.Intn(500)         //nolint:gosec
+
+	return ps.generatePosts(length)
+}
+
+func (ps Posts) GetPostsByLength(length int) models.Posts {
+	return ps.generatePosts(length)
+}
+
+func (ps Posts) generatePosts(length int) models.Posts {
 	posts := models.Posts{}
 
-	if length > 500 {
-		panic("не думаю, чтобы вам могло понадобиться так много постов")
-	}
-
-	if length < 2 {
-		return models.Posts{s.GetPost()}
-	}
-
 	for i := 0; i < length; i++ {
-		posts = append(posts, s.GetPost())
+		posts = append(posts, ps.GetPost())
 	}
 
 	return posts

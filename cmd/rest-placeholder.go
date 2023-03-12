@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+
 	"restplaceholder/config"
 	"restplaceholder/internal/app/server"
 	"restplaceholder/internal/app/server/handler"

@@ -10,5 +10,8 @@ type Service struct {
 }
 
 func NewService() *Service {
-	return &Service{}
+	return &Service{
+		BlankImage: NewBlank(),
+		Posts:      NewPosts(),
+	}
 }
