@@ -5,8 +5,8 @@ import (
 
 	"restplaceholder/config"
 	"restplaceholder/internal/app/server"
-	"restplaceholder/internal/app/server/handler"
-	"restplaceholder/internal/app/server/service"
+	"restplaceholder/internal/app/server/handler" //nolint:typecheck
+	"restplaceholder/internal/app/server/service" //nolint:typecheck
 )
 
 func main() {
