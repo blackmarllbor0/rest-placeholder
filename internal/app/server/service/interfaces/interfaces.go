@@ -10,8 +10,8 @@ type BlankImage interface {
 }
 
 type Posts interface {
-	GetPost() models.Post
-	GetPosts() models.Posts
+	GetPost() (models.Post, error)
+	GetPosts() (models.Posts, error)
 	GetPostsByLength(length int) models.Posts
 }
 

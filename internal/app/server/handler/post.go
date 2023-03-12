@@ -8,11 +8,20 @@ import (
 )
 
 func (h Handler) GetPost(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, h.service.GetPost())
+	post, err := h.service.GetPost()
+	if err != nil {
+		panic(err)
+	}
+
+	ctx.JSON(http.StatusOK, post)
 }
 
 func (h Handler) GetPosts(c *gin.Context) {
-	c.JSON(http.StatusOK, h.service.GetPosts())
+	posts, err := h.service.GetPosts()
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(http.StatusOK, posts)
 }
 
 func (h Handler) GetPostsByLength(c *gin.Context) {
