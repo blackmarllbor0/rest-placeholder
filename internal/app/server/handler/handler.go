@@ -20,12 +20,17 @@ func (h Handler) InitRoutes() *gin.Engine {
 	router.GET("/blank", h.BlankImage)
 
 	router.GET("/post", h.GetPost)
-
 	posts := router.Group("posts")
 	{
 		posts.GET("/", h.GetPosts)
 		posts.GET("/:len", h.GetPostsByLength)
 	}
 
+	router.GET("/user", h.GetUser)
+	users := router.Group("users")
+	{
+		users.GET("/", h.GetUsers)
+		users.GET("/:len", h.GetUsersByLength)
+	}
 	return router
 }

@@ -2,9 +2,9 @@ package service
 
 import (
 	"math/rand"
+	"restplaceholder/internal/app/models"
 	"time"
 
-	"restplaceholder/internal/models"
 	"restplaceholder/pkg/dictionary"
 )
 
@@ -26,7 +26,7 @@ func (ps Posts) GetPost() models.Post {
 
 func (ps Posts) GetPosts() models.Posts {
 	rand.Seed(time.Now().UnixNano()) //nolint:staticcheck
-	length := rand.Intn(500)         //nolint:gosec
+	length := rand.Intn(50)          //nolint:gosec
 
 	return ps.generatePosts(length)
 }

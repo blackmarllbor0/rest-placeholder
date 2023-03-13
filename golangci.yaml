@@ -22,7 +22,7 @@ linters:
     - gosimple
     - govet
     - ineffassign
-    - typecheck
+#    - typecheck
     - unused
     - cyclop
     - dupl

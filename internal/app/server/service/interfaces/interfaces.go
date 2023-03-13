@@ -2,8 +2,7 @@ package interfaces
 
 import (
 	"bytes"
-
-	"restplaceholder/internal/models"
+	"restplaceholder/internal/app/models"
 )
 
 type BlankImage interface {
@@ -14,4 +13,10 @@ type Posts interface {
 	GetPost() models.Post
 	GetPosts() models.Posts
 	GetPostsByLength(length int) models.Posts
+}
+
+type Users interface {
+	GetUser() models.User
+	GetUsers() models.Users
+	GetUsersByLength(length int) models.Users
 }
